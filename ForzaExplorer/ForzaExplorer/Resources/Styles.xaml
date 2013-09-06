@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <FontFamily x:Key="ControlFont">Segoe UI Light</FontFamily>
+    <Style TargetType="TextBlock" x:Key="TextBlockStyle">
+        <Setter Property="FontFamily" Value="{DynamicResource ControlFont}"/>
+        <Setter Property="FontSize" Value="11pt"/>
+        <Setter Property="Foreground" Value="{DynamicResource ButtonContentBrush}"/>
+    </Style>
+</ResourceDictionary>

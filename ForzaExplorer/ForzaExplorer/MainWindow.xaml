@@ -1,8 +1,32 @@
-﻿<Window x:Class="ForzaExplorer.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowState="Maximized"
-        Title="{StaticResource ApplicationTitle}" WindowStyle="None" Icon="Resources/Images/icon.png">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ForzaExplorer.GUI" x:Class="ForzaExplorer.MainWindow"
+        Title="{StaticResource ApplicationTitle}" WindowStyle="None" Icon="Resources/Images/icon.png" ResizeMode="NoResize">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="{DynamicResource ApplicationTitle}" Background="{DynamicResource TitleBarBackgroundBrush}" />
+            <Button Grid.Column="1" Template="{DynamicResource WindowControlButtonTemplate}">
+                <Rectangle Width="26" Height="23" Fill="{DynamicResource CloseWindowIcon}" >
+
+                </Rectangle>
+            </Button>
+        </Grid>
+        <StackPanel Grid.Row="1" MinWidth="30">
+        </StackPanel>
+        <local:MainView Grid.Row="1" Grid.Column="1"/>
+        <GridSplitter Grid.Column="0" Grid.Row="1" Width="5"/>
     </Grid>
 </Window>

@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForzaExplorer", "ForzaExplorer\ForzaExplorer.csproj", "{8B4B9BB0-B6EE-48FB-B9DA-9D250821656E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ForzaExplorerMvvmLight", "ForzaExplorerMvvmLight\ForzaExplorerMvvmLight.csproj", "{6BA10699-4BA6-4216-9FA0-FCDF41D36051}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,10 +13,6 @@ Global
 		{8B4B9BB0-B6EE-48FB-B9DA-9D250821656E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B4B9BB0-B6EE-48FB-B9DA-9D250821656E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B4B9BB0-B6EE-48FB-B9DA-9D250821656E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6BA10699-4BA6-4216-9FA0-FCDF41D36051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6BA10699-4BA6-4216-9FA0-FCDF41D36051}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6BA10699-4BA6-4216-9FA0-FCDF41D36051}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6BA10699-4BA6-4216-9FA0-FCDF41D36051}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace ForzaExplorer.GUI
+namespace ForzaExplorerOld.GUI
 {
     /// <summary>
     /// Interaction logic for MainView.xaml

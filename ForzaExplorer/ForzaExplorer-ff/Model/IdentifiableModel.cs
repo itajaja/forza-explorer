@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ForzaFramework.Model
+namespace ForzaExplorer.Model
 {
     /// <summary>
     /// Defines a model object that can be identified by an Id

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ForzaFramework.Model
+namespace ForzaExplorer.Model
 {
     public class DataService : IDataService
     {

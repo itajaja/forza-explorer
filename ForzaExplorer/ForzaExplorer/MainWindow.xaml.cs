@@ -1,4 +1,4 @@
-﻿namespace ForzaExplorer
+﻿namespace ForzaExplorerOld
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

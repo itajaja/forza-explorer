@@ -1,7 +1,7 @@
-﻿using GalaSoft.MvvmLight;
-using ForzaFramework.Model;
+﻿using ForzaExplorer.Model;
+using GalaSoft.MvvmLight;
 
-namespace ForzaFramework.ViewModel
+namespace ForzaExplorer.ViewModel
 {
     /// <summary>
     /// ViewModel Class Implementation Sample

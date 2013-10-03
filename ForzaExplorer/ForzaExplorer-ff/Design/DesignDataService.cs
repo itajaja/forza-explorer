@@ -1,7 +1,7 @@
 ﻿using System;
-using ForzaFramework.Model;
+using ForzaExplorer.Model;
 
-namespace ForzaFramework.Design
+namespace ForzaExplorer.Design
 {
     public class DesignDataService : IDataService
     {

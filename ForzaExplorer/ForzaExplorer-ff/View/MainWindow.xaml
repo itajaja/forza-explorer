@@ -1,14 +1,12 @@
-﻿<Window x:Class="ForzaFramework.ViewSample"
+﻿<Window x:Class="ForzaExplorer.View.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.ignore.com"
-        mc:Ignorable="d ignore"
-        Height="272.26"
-        Width="307.192"
-        Title="MVVM Light Application"
-        DataContext="{Binding Main, Source={StaticResource Locator}}">
+        xmlns:view="clr-namespace:ForzaExplorer.View"
+        mc:Ignorable="d ignore" WindowStyle="None"  ResizeMode="NoResize"
+        DataContext="{Binding Main, Source={StaticResource Locator}}" Icon="/ForzaExplorer;component/Resources/Images/icon.png">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -16,16 +14,32 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
-    <Grid x:Name="LayoutRoot">
-
-        <TextBlock FontSize="36"
-                   FontWeight="Bold"
-                   Foreground="Purple"
-                   Text="{Binding WelcomeTitle}"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"
-                   TextWrapping="Wrap" />
-
+    <Window.Title>
+        <Binding Mode="OneWay" Path="ApplicationTitle" Source="{StaticResource Strings}"/>
+    </Window.Title>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Content="{DynamicResource ApplicationTitle}" Background="{DynamicResource TitleBarBackgroundBrush}" />
+            <Button Grid.Column="1" Template="{DynamicResource WindowControlButtonTemplate}" VerticalContentAlignment="Stretch">
+                <Rectangle Fill="{DynamicResource CloseWindowIcon}"/>
+            </Button>
+            <Button Grid.Column="1" Template="{DynamicResource WindowControlButtonTemplate}" VerticalContentAlignment="Stretch">
+                <Rectangle Fill="{DynamicResource CloseWindowIcon}"/>
+            </Button>
+            <Button Grid.Column="1" Template="{DynamicResource WindowControlButtonTemplate}" VerticalContentAlignment="Stretch">
+                <Rectangle Fill="{DynamicResource CloseWindowIcon}"/>
+            </Button>
+        </Grid>
+        <StackPanel Grid.Row="1" MinWidth="30">
+        </StackPanel>
+        <view:MainView Grid.Row="1"/>
     </Grid>
 </Window>

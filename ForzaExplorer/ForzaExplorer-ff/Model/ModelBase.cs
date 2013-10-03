@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 
-namespace ForzaFramework.Model
+namespace ForzaExplorer.Model
 {
     public abstract class ModelBase : ObservableObject
     {

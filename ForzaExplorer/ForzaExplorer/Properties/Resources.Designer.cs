@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ForzaExplorer.Properties
+namespace ForzaExplorerOld.Properties
 {
 
 

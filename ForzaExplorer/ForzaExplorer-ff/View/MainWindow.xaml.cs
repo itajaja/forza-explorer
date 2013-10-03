@@ -1,13 +1,12 @@
 ﻿using System.Windows;
-using ForzaFramework.ViewModel;
-using ForzaFramework.ViewModel;
+using ForzaExplorer.ViewModel;
 
-namespace ForzaFramework
+namespace ForzaExplorer.View
 {
     /// <summary>
     /// View Class Implementation Sample
     /// </summary>
-    public partial class ViewSample
+    public partial class MainWindow
     {
         public ViewModelSample ViewModel
         {
@@ -20,7 +19,7 @@ namespace ForzaFramework
         /// <summary>
         /// Initializes a new instance of the ViewSample class.
         /// </summary>
-        public ViewSample()
+        public MainWindow()
         {
             InitializeComponent();
             Closing += (s, e) => ViewModelLocator.Cleanup();

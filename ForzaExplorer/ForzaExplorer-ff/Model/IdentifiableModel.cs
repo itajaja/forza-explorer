@@ -1,27 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ForzaExplorer.Model
 {
-    /// <summary>
-    /// Defines a model object that can be identified by an Id
-    /// </summary>
-    public abstract class IdentifiableModel : ModelBase
+  /// <summary>
+  /// Defines a model object that can be identified by an Id
+  /// </summary>
+  public abstract class IdentifiableModel : ModelBase
+  {
+    readonly Guid _id;
+
+    protected IdentifiableModel(Guid id)
     {
-        Guid _id;
-
-        public Guid Id
-        {
-            get { return _id; }
-            set { Set("Id", ref _id, value); }
-        }
-
-        public override int GetHashCode()
-        {
-            return _id.GetHashCode();
-        }
+      _id = id;
     }
+
+
+    public Guid Id
+    {
+      get { return _id; }
+    }
+
+    public override int GetHashCode()
+    {
+      return _id.GetHashCode();
+    }
+  }
 }

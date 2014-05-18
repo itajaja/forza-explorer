@@ -38,7 +38,7 @@ namespace ForzaExplorer.ViewModel
                 SimpleIoc.Default.Register<IDataService, DataService>();
             }
 
-            SimpleIoc.Default.Register<ViewModelSample>();
+            SimpleIoc.Default.Register<MainVM>();
         }
 
         /// <summary>
@@ -47,11 +47,11 @@ namespace ForzaExplorer.ViewModel
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
-        public ViewModelSample Main
+        public MainVM Main
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<ViewModelSample>();
+                return ServiceLocator.Current.GetInstance<MainVM>();
             }
         }
 

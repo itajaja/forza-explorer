@@ -1,29 +1,28 @@
-﻿using System.Windows;
-using ForzaExplorer.ViewModel;
+﻿using ForzaExplorer.ViewModel;
 
 namespace ForzaExplorer.View
 {
-    /// <summary>
-    /// View Class Implementation Sample
-    /// </summary>
-    public partial class MainWindow
+  /// <summary>
+  /// View Class Implementation Sample
+  /// </summary>
+  public partial class MainWindow
+  {
+    public MainVM ViewModel
     {
-        public ViewModelSample ViewModel
-        {
-            get
-            {
-                return DataContext as ViewModelSample;
-            }
-        }
-        
-        /// <summary>
-        /// Initializes a new instance of the ViewSample class.
-        /// </summary>
-        public MainWindow()
-        {
-            InitializeComponent();
-            Closing += (s, e) => ViewModelLocator.Cleanup();
-        }
-
+      get
+      {
+        return DataContext as MainVM;
+      }
     }
+
+    /// <summary>
+    /// Initializes a new instance of the ViewSample class.
+    /// </summary>
+    public MainWindow()
+    {
+      InitializeComponent();
+      Closing += (s, e) => ViewModelLocator.Cleanup();
+    }
+
+  }
 }

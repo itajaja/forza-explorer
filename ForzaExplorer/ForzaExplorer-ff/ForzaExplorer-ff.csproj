@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E54CF160-1BDC-49AB-883D-546E5604AAA0}</ProjectGuid>
-    <ProjectGuid>07312627-4579-4c20-be10-85fe11194d72</ProjectGuid>
+    <ProjectGuid>{E54CF160-1BDC-49AB-883D-546E5604AAA0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ForzaExplorer</RootNamespace>
@@ -73,6 +73,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Design\DesignDataService.cs" />
+    <Compile Include="Framework\NotifyPropertyChanged.cs" />
     <Compile Include="Model\ModelSample2.cs" />
     <Compile Include="Model\IdentifiableModel.cs" />
     <Compile Include="Model\ModelSample.cs" />

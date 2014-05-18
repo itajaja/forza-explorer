@@ -4,42 +4,24 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.ignore.com"
-        xmlns:view="clr-namespace:ForzaExplorer.View"
         mc:Ignorable="d ignore" WindowStyle="None"  ResizeMode="NoResize"
         DataContext="{Binding Main, Source={StaticResource Locator}}" Icon="/ForzaExplorer;component/Resources/Images/icon.png">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Styles/MainStyle.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    <Window.Title>
-        <Binding Mode="OneWay" Path="ApplicationTitle" Source="{StaticResource Strings}"/>
-    </Window.Title>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid Grid.ColumnSpan="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <Label Content="{DynamicResource ApplicationTitle}" Background="{DynamicResource TitleBarBackgroundBrush}" />
-            <Button Grid.Column="1" Template="{DynamicResource WindowControlButtonTemplate}" VerticalContentAlignment="Stretch">
-                <Rectangle Fill="{DynamicResource CloseWindowIcon}"/>
-            </Button>
-            <Button Grid.Column="1" Template="{DynamicResource WindowControlButtonTemplate}" VerticalContentAlignment="Stretch">
-                <Rectangle Fill="{DynamicResource CloseWindowIcon}"/>
-            </Button>
-            <Button Grid.Column="1" Template="{DynamicResource WindowControlButtonTemplate}" VerticalContentAlignment="Stretch">
-                <Rectangle Fill="{DynamicResource CloseWindowIcon}"/>
-            </Button>
-        </Grid>
-        <StackPanel Grid.Row="1" MinWidth="30">
-        </StackPanel>
-        <view:MainView Grid.Row="1"/>
-    </Grid>
+  <Window.Resources>
+    <ResourceDictionary>
+      <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/MainStyle.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+  </Window.Resources>
+  <Window.Title>
+    <Binding Mode="OneWay" Path="ApplicationTitle" Source="{StaticResource Strings}"/>
+  </Window.Title>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Label Content="{Binding Number}" ></Label>
+  </Grid>
 </Window>

@@ -15,11 +15,14 @@ namespace ForzaExplorer.Framework
       var handler = PropertyChanged;
       if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
     }
-    protected bool SetField<T>(ref T field, T value, string propertyName)
+    protected bool SetField<T>(ref T field, T value, params string[] propertyNames)
     {
       if (EqualityComparer<T>.Default.Equals(field, value)) return false;
       field = value;
-      OnPropertyChanged(propertyName);
+      foreach (var s in propertyNames)
+      {
+        OnPropertyChanged(s);        
+      }
       return true;
     }
   }

@@ -22,6 +22,8 @@
       <RowDefinition Height="Auto" />
       <RowDefinition/>
     </Grid.RowDefinitions>
-    <Label Content="{Binding Number}" ></Label>
+    <Label Content="{Binding CurrentPath}"/>
+    <TextBox Text="{Binding SearchText}" Grid.Row="1"/>
+    <ListBox ItemsSource="{Binding FileList}" SelectedValuePath="Name" Grid.Row="2"></ListBox>
   </Grid>
 </Window>

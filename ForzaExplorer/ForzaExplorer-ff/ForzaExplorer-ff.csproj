@@ -85,7 +85,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings_en-us.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ViewModelSample.cs" />
+    <Compile Include="Services\ConfigurationService.cs" />
+    <Compile Include="Services\IConfigurationService.cs" />
+    <Compile Include="ViewModel\MainVM.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="View\MainView.xaml">
       <SubType>Form</SubType>

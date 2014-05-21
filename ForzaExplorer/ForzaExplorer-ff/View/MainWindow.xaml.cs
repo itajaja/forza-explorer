@@ -21,6 +21,7 @@ namespace ForzaExplorer.View
     public MainWindow()
     {
       InitializeComponent();
+      SearchBox.Focus();
       Closing += (s, e) => ViewModelLocator.Cleanup();
     }
 

@@ -1,18 +1,24 @@
-﻿<Window x:Class="ForzaExplorer.View.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:ignore="http://www.ignore.com"
+        xmlns:io="clr-namespace:System.IO;assembly=mscorlib"
+        xmlns:converters="clr-namespace:ForzaExplorer.Converters" x:Class="ForzaExplorer.View.MainWindow"
         mc:Ignorable="d ignore" WindowStyle="None"  ResizeMode="NoResize"
-        DataContext="{Binding Main, Source={StaticResource Locator}}" Icon="/ForzaExplorer;component/Resources/Images/icon.png">
+        Icon="/ForzaExplorer;component/Resources/Images/icon.png">
   <Window.Resources>
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Styles/MainStyle.xaml" />
       </ResourceDictionary.MergedDictionaries>
+      <converters:DirectoryCheckConverter x:Key="DirectoryCheckConverter"/>
     </ResourceDictionary>
   </Window.Resources>
+  <Window.DataContext>
+    <Binding Path="Main" Source="{StaticResource Locator}"/>
+  </Window.DataContext>
   <Window.Title>
     <Binding Mode="OneWay" Path="ApplicationTitle" Source="{StaticResource Strings}"/>
   </Window.Title>
@@ -23,7 +29,22 @@
       <RowDefinition/>
     </Grid.RowDefinitions>
     <Label Content="{Binding CurrentPath}"/>
-    <TextBox Name="SearchBox" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
-    <ListBox ItemsSource="{Binding FileView}" SelectedItem="{Binding SelectedFile}"  SelectedValuePath="Name" Grid.Row="2"></ListBox>
+    <TextBox x:Name="SearchBox" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1">
+      <TextBox.InputBindings>
+        <KeyBinding Gesture="Down" Command="{Binding NavigateUp}"/>
+        <KeyBinding Gesture="Up" Command="{Binding NavigateDown}"/>
+        <KeyBinding Gesture="Enter" Command="{Binding SelectCommand}"/>
+        <KeyBinding Gesture="Ctrl+Enter" Command="{Binding GoBack}"/>
+      </TextBox.InputBindings>
+    </TextBox>
+    <ListBox ItemsSource="{Binding FileView}" SelectedItem="{Binding SelectedFile}" SelectedValuePath="Name" Grid.Row="2">
+      <ListBox.ItemTemplate>
+        <DataTemplate DataType="io:FileSystemInfo">
+          <Grid>
+            <TextBlock Text="{Binding Name}" Foreground="{Binding Attributes, Converter={StaticResource DirectoryCheckConverter}, ConverterParameter=Blue}" />
+          </Grid>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
   </Grid>
 </Window>

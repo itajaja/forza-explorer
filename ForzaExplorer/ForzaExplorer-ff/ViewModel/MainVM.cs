@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Windows.Data;
+using System.Windows.Input;
 using ForzaExplorer.Framework;
 using ForzaExplorer.Services;
+using ForzaExplorer.Utils;
+using GalaSoft.MvvmLight.Command;
 
 namespace ForzaExplorer.ViewModel
 {
@@ -23,7 +23,7 @@ namespace ForzaExplorer.ViewModel
         if (String.IsNullOrEmpty(value))
           FileView.Filter = null;
         else
-          FileView.Filter = o => ((FileSystemInfo)o).Name.ContainsIgnore( value);
+          FileView.Filter = o => ((FileSystemInfo)o).Name.MatchSub(value);
       }
     }
 
@@ -51,10 +51,16 @@ namespace ForzaExplorer.ViewModel
       set { SetField(ref _selectedFile, value, "SelectedFile"); }
     }
 
+    public ICommand NavigateUp { get; private set; }
+    public ICommand NavigateDown { get; private set; }
+    public ICommand SelectCommand { get; private set; }
+    public ICommand GoBack { get; private set; }
+
     public MainVM(IConfigurationService configurationService)
     {
       _configurationService = configurationService;
       InitializeData();
+      InitializeCommands();
     }
 
     private void InitializeData()
@@ -62,33 +68,32 @@ namespace ForzaExplorer.ViewModel
       CurrentPath = _configurationService.HomePath;
     }
 
-    ////public override void Cleanup()
-    ////{
-    ////    // Clean up if needed
-
-    ////    base.Cleanup();
-    ////}
+    private void InitializeCommands()
+    {
+      NavigateUp = new RelayCommand(() => FileView.MoveCurrentToNext());
+      NavigateDown = new RelayCommand(() => FileView.MoveCurrentToPrevious());
+      SelectCommand = new RelayCommand(() =>
+      {
+        var item = FileView.CurrentItem as FileSystemInfo;
+        SearchText = string.Empty;
+        if (item == null)
+          return;
+        if (item is FileInfo)
+          System.Diagnostics.Process.Start(item.FullName);
+        else if (item is DirectoryInfo)
+          CurrentPath = item.FullName;
+      });
+      GoBack = new RelayCommand(() =>
+      {
+        var index = CurrentPath.LastIndexOf('\\');
+        if (index > 0)
+          CurrentPath = CurrentPath.Substring(0, index);
+      });
+    }
 
     private string _currentPath;
     private string _searchText;
     private FileSystemInfo _selectedFile;
     private ICollectionView _fileView;
   }
-
-  public static class StringExtensions
-  {
-
-
-    /// <summary>
-    /// Check if the string contains the specified string ignoring the case options specified by the culture
-    /// </summary>
-    /// <param name="text"></param>
-    /// <param name="word">the string that has to be contained</param>
-    /// <returns>Returns true if the string contains the word string, ignoring the case, otherwise false</returns>
-    public static bool ContainsIgnore(this string text, string word)
-    {
-      return CultureInfo.CurrentCulture.CompareInfo.IndexOf(text, word, CompareOptions.IgnoreCase) >= 0;
-    }
-  }
-
 }
